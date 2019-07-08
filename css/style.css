@@ -2250,6 +2250,10 @@ figure.effect-oscar:hover img {
 	transition: all 350ms;
 }
 
+.client_logo a img{
+	width: 50%;
+}
+
 
 /* Twitter
 ================================================== */
