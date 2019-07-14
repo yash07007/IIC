@@ -274,7 +274,42 @@ jQuery(function($) {
           }, 800);
           return false;
       });
-      
+
       $('#back-to-top').tooltip('hide');
 
 });
+
+
+/* ----------------------------------------------------------- */
+/*  Pagination
+/* ----------------------------------------------------------- */
+
+function page(number){
+
+  $(".page").each(function(i,e){
+    $(this).removeClass("visible")
+    $(this).addClass("hidden")
+  })
+  $(".page" + String(number)).removeClass("hidden")
+  $(".page" + String(number)).addClass("visible")
+
+  $(".link").each(function(i,e){
+    $(this).removeClass("active")
+  })
+  $(".link" + String(number)).addClass("active")
+}
+
+function right(limit){
+  curr = document.querySelector(".pagination .active").classList
+  number = (Number(curr[1][4]) % limit) + 1
+  page(number)
+}
+
+function left(limit){
+  curr = document.querySelector(".pagination .active").classList
+  number = (Number(curr[1][4] - 1))
+  if(number == 0){
+    number = limit
+  }
+  page(number)
+}

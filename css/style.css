@@ -32,6 +32,7 @@
 22. Blog
 23. Landing page
 24.	Style Swithcer (you can delete the css)
+25. Coustom Styles
 */
 
 @import url(http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900);
@@ -58,6 +59,22 @@ html{
 	position: relative;
 	-webkit-font-smoothing: antialiased;
 	text-rendering: optimizeLegibility;
+}
+
+::-webkit-scrollbar-track{
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+	background-color: #F5F5F5;
+}
+
+::-webkit-scrollbar{
+	width: 4px;
+	background-color: #F5F5F5;
+}
+
+::-webkit-scrollbar-thumb{
+	background-color: #000000;
+	border: 1px solid #555555;
+	border-radius: 50px;
 }
 
 body{
@@ -1353,13 +1370,15 @@ ul.navbar-nav > li > a i{
 	text-align: justify;
 }
 
-.landing-tab .tab-pane i.big{
+.landing-tab .tab-pane i.big, #downloads i.big{
 	font-size: 200px;
 	margin-bottom: 30px;
 	display: block;
 }
 
-
+#downloads .col-md-6:hover i.big{
+	color: #00abdc;
+}
 
 /* Featured Tab */
 
@@ -1470,7 +1489,9 @@ ul.navbar-nav > li > a i{
 }
 
 .featured-tab .tab-pane i.big{
-	font-size: 230px;
+	font-size: 200px;
+	text-align: center;
+	color: #00abdc;
 }
 
 
@@ -1571,8 +1592,10 @@ ul.navbar-nav > li > a i{
 	backface-visibility: hidden;
 }
 figure.effect-oscar {
-	background: #000;
-	background: rgba(0,0,0,.8);
+	/* background: #000; */
+	background: #fff;
+	/* background: rgba(0, 0, 0,.8); */
+	background: rgba(255, 255, 255,.8);
 }
 
 figure.effect-oscar img {
@@ -1590,9 +1613,10 @@ figure.effect-oscar figcaption {
 	background-color: rgba(0,0,0,0.1);
 	-webkit-transition: background-color 0.35s;
 	transition: background-color 0.35s;
+	overflow: auto;
 }
 
-figure.effect-oscar figcaption::before {
+/* figure.effect-oscar figcaption::before {
 	position: absolute;
 	top: 30px;
 	right: 30px;
@@ -1600,6 +1624,16 @@ figure.effect-oscar figcaption::before {
 	left: 30px;
 	border: 1px solid rgba(255,255,255,.3);
 	content: '';
+} */
+
+figure.effect-oscar figcaption p{
+	display: none;
+	text-align: justify;
+	padding: 10px 15px;
+	border: 1px solid rgba(255,255,255,.3);
+	min-height: 100%;
+	/* height: 100%; */
+	/* overflow-y: auto; */
 }
 
 figure.effect-oscar h3 {
@@ -1628,8 +1662,8 @@ figure.effect-oscar a{
 
 
 figure.effect-oscar a.link i{
-	-webkit-transform: rotate(90deg);
-	transform: rotate(90deg);
+	/* -webkit-transform: rotate(90deg); */
+	/* transform: rotate(90deg); */
 }
 
 figure.effect-oscar figcaption::before,
@@ -1656,7 +1690,7 @@ figure.effect-oscar:hover a {
 
 
 figure.effect-oscar:hover figcaption {
-	background-color: rgba(0,0,0,0.5);
+	background-color: rgba(0,0,0,0.8);
 }
 
 figure.effect-oscar:hover img {
@@ -1690,6 +1724,7 @@ figure.effect-oscar:hover img {
 	font-size: 16px;
 	margin: 5px 0 -5px 0;
 	line-height: normal;
+	text-transform: none;
 }
 
 .portfolio-static-desc a{
@@ -3424,4 +3459,17 @@ a.close-styler{
 
 .style-switch-wrapper #preset6 {
 	background-color: #8C42BA;
+}
+
+/* Custom Styles
+================================================== */
+
+.visible{
+	display: block
+}
+.hidden{
+	display: hidden
+}
+.effect-oscar:hover p{
+	display: block !important;
 }
