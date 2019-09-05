@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/temp.css">
+</head>
+<body>
+    <div id="wrapper">
+        <div id="images">
+            <div class="carousel">
+                <img src="images/gallery/1.jpg" alt="cod" width="700" height="350" />
+                <img src="images/gallery/2.jpg" alt="cod" width="700" height="350" />
+                <img src="images/gallery/3.jpg" alt="cod" width="700" height="350" />
+                <img src="images/gallery/4.jpg" alt="gta" width="700" height="350" />
+                <img src="images/gallery/5.jpg" alt="gta" width="700" height="350" />
+                <img src="images/gallery/6.jpg" alt="gta" width="700" height="350" />
+                <img src="images/gallery/7.jpg" alt="mgs" width="700" height="350" />
+                <img src="images/gallery/8.jpg" alt="mgs" width="700" height="350" />
+                <img src="images/gallery/9.jpg" alt="mgs" width="700" height="350" />
+            </div>
+        </div>
+        <div id="timer"></div>
+        <div id="captions">
+            <div class="carousel">
+                <div class="cod">Call Of Duty
+                    <div class="pager"></div>
+                </div>
+                <div class="gta">Grand Theft Auto
+                    <div class="pager"></div>
+                </div>
+                <div class="mgs">Metal Gear Solid
+                    <div class="pager"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <script src="js/carouFredSel-jQuery-master/jquery.carouFredSel-6.2.1-packed.js"></script>
+    <script src="js/carouFredSel-jQuery-master/jquery.carouFredSel-6.2.1.js"></script>
+    <script src="js/carouFredSel-jQuery-master/helper-plugins/jquery.ba-throttle-debounce.min.js"></script>
+    <script src="js/carouFredSel-jQuery-master/helper-plugins/jquery.mousewheel.min.js"></script>
+    <script src="js/carouFredSel-jQuery-master/helper-plugins/jquery.touchSwipe.min.js"></script>
+    <script src="js/carouFredSel-jQuery-master/helper-pluginS/jquery.transit.min.js"></script>
+    <script>
+        $(function() {
+            var $imgs = $('#images .carousel'),
+                $capt = $('#captions .carousel'),
+                $timr = $('#timer');
+        
+            $imgs.carouFredSel({
+                circular: false,
+                scroll: {
+                    easing: 'quadratic',
+                    duration: 2,
+                    timeoutDuration: 3000,
+                    onBefore: function( data ) {
+                        $capt.trigger( 'slideTo', [ '.' + data.items.visible.first().attr( 'alt' ) ] );
+                        $timr.stop().animate({
+                            opacity: 0
+                        }, data.scroll.duration);
+                    },
+                    onAfter: function() {
+                        $timr.stop().animate({
+                            opacity: 1
+                        }, 150);
+                    }
+                },
+                auto: {
+                    progress: '#timer'
+                },
+                pagination: {
+                    container: '.pager',
+                    anchorBuilder: function( i ) {
+                        return '<a class="p' + i + '" href="#"></a>';
+                    }
+                }
+            });
+            $capt.carouFredSel({
+                circular: false,
+                auto: false,
+                scroll: {
+                    easing: 'quadratic',
+                    duration: 2
+                }
+            });
+        });
+    </script>
+</body>
+</html>
+

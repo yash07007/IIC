@@ -337,7 +337,7 @@
 
 	.navbar-collapse ul.navbar-nav > li.active > a,
 	.navbar-collapse ul.navbar-nav > li:hover > a{
-		color: #ee3b24;
+		color: #49a2e7;
 	}
 
 	/* Slideshow */
@@ -545,7 +545,13 @@
 		padding-bottom: 40px;
 	}
 
+	.Desktop{
+		display: none !important;
+	}
 
+	.Mobile{
+		display: block !important;
+	}
 }
 
 /* Extra Small Devices, Phones */ 
